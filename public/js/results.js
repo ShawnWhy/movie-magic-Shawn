@@ -45,6 +45,7 @@ var deployPosters=function(){
     console.log(movieArray);
     for(var i=0; i<movieArray.length;i++){
         var newPoster = $("<div>");
+        var new 
         newPoster.addClass("posterFrame");
         var newLink = $("<a>");
         newLink.attr("href",movieArray[i].rottenTomatoLink);
