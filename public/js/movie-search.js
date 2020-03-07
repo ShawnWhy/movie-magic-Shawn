@@ -206,7 +206,7 @@ var movieSearchThree = function(){
           }};
           // console.log(score+"newScore");
 
-      var tomatoTitle=response.Title.replace(" ","_");
+      var tomatoTitle=response.Title.replace(/ /g,"_");
       var newRottenTomatoLink = `https://www.rottentomatoes.com/m/${tomatoTitle}`;
       // console.log("score"+score);
       // console.log(response.Title);

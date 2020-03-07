@@ -90,7 +90,7 @@ var buddySearchThree= function(){
             var buddyObject={
                 username:users[i].username,
                 score:buddyScore
-            }
+            };
             // console.log(JSON.stringify(buddyObject));
             buddyArray.push(buddyObject);
         }
