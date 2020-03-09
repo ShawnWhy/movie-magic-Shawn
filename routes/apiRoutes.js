@@ -3,20 +3,20 @@ var passport = require("../config/passport");
 var movieSearch = require("../public/js/movie-search");
 var buddySearch = require("../public/js/buddy-search")
 var mysql = require("mysql");
+
 var connection = mysql.createConnection({
-  host: "ryvdxs57afyjk41z.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+  host: "kil9uzd3tgem3naa.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
 
   // Your port; if not 3306
   port: 3306,
 
   // Your username
-  user: "e0g58615ouuxd4ls",
+  user: "ls3zrg9vb8kz8vup",
 
   // Your password
-  password: "bva6gv2ax0zhrlyn",
-  database: "bdzjm9wt2q1l3qxk"
+  password: "sbl96an9cph1brn5",
+  database: "aqsxeewj5c9qm4hh"
 });
-
 module.exports = function(app) {
 
   // If the user has valid login credentials, send them to the members page. Otherwise the user will be sent an error
