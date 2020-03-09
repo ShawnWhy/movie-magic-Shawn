@@ -9,17 +9,17 @@ const cTable = require('console.table');
 var dotenv=require("dotenv");
 
 var connection = mysql.createConnection({
-  host: "ryvdxs57afyjk41z.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+  host: "kil9uzd3tgem3naa.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
 
   // Your port; if not 3306
   port: 3306,
 
   // Your username
-  user: "e0g58615ouuxd4ls",
+  user: "ls3zrg9vb8kz8vup",
 
   // Your password
-  password: "bva6gv2ax0zhrlyn",
-  database: "bdzjm9wt2q1l3qxk"
+  password: "sbl96an9cph1brn5",
+  database: "aqsxeewj5c9qm4hh"
 });
 
 
