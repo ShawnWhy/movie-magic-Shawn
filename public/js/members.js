@@ -27,7 +27,7 @@ var setupHomePage=function(data){
   movieArray.push(data.movie_three);
   for(var i=0;i<movieArray.length;i++){
     console.log(movieArray[i]);
-    queryURL=`http://www.omdbapi.com/?T=${movieArray[i]}&apikey=7e6191f4`;
+    queryURL=`https://www.omdbapi.com/?T=${movieArray[i]}&apikey=7e6191f4`;
     console.log(queryURL);
     $.ajax({
           url:queryURL,
