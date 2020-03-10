@@ -2,7 +2,7 @@
 const axios = require('axios').default;
 var moment = require('moment');
 var request = require('ajax-request');
-var $ = require('jQuery')
+var $ = require('jquery')
 var mysql = require("mysql");
 // var inquirer = require("inquirer");
 const cTable = require('console.table');
