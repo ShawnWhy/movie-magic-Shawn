@@ -137,7 +137,7 @@ var buddySearchTwo = function(){
     //find the information pertaining to the user's favorite movies.
     //the information is then pushed into the miscnames array.
     for (var i=0; i<favMovies.length;i++){
-    var queryURL=`http://www.omdbapi.com/?T=${favMovies[i]}&apikey=7e6191f4`;
+    var queryURL=`https://www.omdbapi.com/?T=${favMovies[i]}&apikey=7e6191f4`;
     // console.log(queryURL);
   
     axios.get(queryURL)

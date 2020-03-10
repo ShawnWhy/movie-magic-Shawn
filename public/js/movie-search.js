@@ -111,7 +111,7 @@ var movieSearchThree = function(){
     for(var i=0; i<resultTitles.length;i++){
     //for each of the fond movie titles, a query is made to collect all of the cast and crew informaiton 
       //of the collected movies
-      queryURL=`http://www.omdbapi.com/?T=${resultTitles[i]}&apikey=7e6191f4`;
+      queryURL=`https://www.omdbapi.com/?T=${resultTitles[i]}&apikey=7e6191f4`;
       // console.log(queryURL);
       axios.get(queryURL)
       .then(function(response){
@@ -240,7 +240,7 @@ var movieSearchTwo = function(){
   //find the information pertaining to the user's favorite movies.
   //the information is then pushed into the miscnames array.
   for (var i=0; i<favMovies.length;i++){
-  var queryURL=`http://www.omdbapi.com/?T=${favMovies[i]}&apikey=7e6191f4`;
+  var queryURL=`https://www.omdbapi.com/?T=${favMovies[i]}&apikey=7e6191f4`;
   // console.log(queryURL);
 
   axios.get(queryURL)
