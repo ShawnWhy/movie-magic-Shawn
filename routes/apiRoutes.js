@@ -4,7 +4,7 @@ var movieSearch = require("../public/js/movie-search");
 var buddySearch = require("../public/js/buddy-search")
 var mysql = require("mysql");
 
-var connection=require("../connection");
+var connection =require("../public/js/connection");
 
 module.exports = function(app) {
 

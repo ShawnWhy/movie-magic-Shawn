@@ -9,7 +9,7 @@ var cTable = require('console.table');
 
 
 
-var connection=require("../../connection");
+var connection=require("./connection");
 
   
 var favMovies=[];

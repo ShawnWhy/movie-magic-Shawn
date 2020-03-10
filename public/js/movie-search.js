@@ -7,7 +7,7 @@ var mysql = require("mysql");
 // var inquirer = require("inquirer");
 const cTable = require('console.table');
 var dotenv=require("dotenv");
-var connection=require("../../connection");
+var connection=require("./connection");
 
 
 

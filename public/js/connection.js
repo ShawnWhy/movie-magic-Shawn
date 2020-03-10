@@ -14,7 +14,4 @@ var connection = mysql.createConnection({
     database: "aqsxeewj5c9qm4hh"
   });
 
-  module.exports={
-      connection:connection,
-
-  }
+  module.exports= connection;
