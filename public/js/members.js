@@ -1,7 +1,6 @@
 // import { post } from "ajax-request";
 
 
-
 var username;
 var movieone= $(".movie-one");
 var movieTwo = $(".movie-two");
@@ -49,11 +48,18 @@ var setupHomePage=function(data){
 
 
 $(document).ready(function(){
+
+      
   $(".searchForm").attr("style","visibility:collapse");
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.username);
     
     username=data.username;
+    $.ajax({
+      url:"/api/deleteSearch/"+username,
+      type:"DELETE",
+      success:function(result){console.log(result)}
+  })
     console.log(data);
       if(data.movie_one||data.movie_two||data.movie_three){
         $(".searchForm").attr("style","visibility:visible")

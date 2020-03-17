@@ -19,7 +19,7 @@ var favGenres=[];
 var miscNames=[];
 // numberOfMovies=10
 var MyUserName = "shawnwhy"
-var buddyArray=[]
+var buddyArray=[];
 
 
 

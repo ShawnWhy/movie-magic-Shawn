@@ -1,7 +1,6 @@
 require("dotenv").config();
 var express = require("express");
-var exphbs = require("express-handlebars");
-
+const compression = require("compression");
 
 var session = require("express-session");
 var passport = require("./config/passport");
@@ -12,6 +11,7 @@ var PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use(compression());
 
 
 // Creating express app and configuring middleware needed for authentication
@@ -27,15 +27,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-// Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
-app.set("view engine", "handlebars");
-// Routes
+
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 var syncOptions = { force: false };

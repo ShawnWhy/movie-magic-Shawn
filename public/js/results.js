@@ -67,19 +67,18 @@ var deployBuddies=function(){
         newbuddyscore.text("score :"+buddyArray[i].score);
         newBuddy.append(newbuddyName);
         newBuddy.append(newbuddyscore);
-
         buddyContainer.append(newBuddy);}
 };
 
-$(".logOut").on("click",function(){
-    // event.stopPropagation;
-    // event.preventDefault;
-    $.ajax({
-        url:"/api/deleteSearch",
-        type:"DELETE"
-    }).then(function(response){
-        console.log(response);
-    })
+// $(".logOut").on("click",function(){
+//     // event.stopPropagation;
+//     // event.preventDefault;
+//     $.ajax({
+//         url:"/api/deleteSearch",
+//         type:"DELETE"
+//     }).then(function(response){
+//         console.log(response);
+//     })
 
 
-})
+// })
