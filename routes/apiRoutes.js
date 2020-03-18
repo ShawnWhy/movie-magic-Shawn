@@ -11,7 +11,7 @@ module.exports = function(app) {
   // If the user has valid login credentials, send them to the members page. Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
 
-    res.render(req.user);
+    res.json(req.user);
   });
 
   // Route for signing up a user.
@@ -26,7 +26,9 @@ module.exports = function(app) {
         res.redirect(307, "/api/login");
       })
       .catch(function(err) {
+        console.log(err)
         res.status(401).json(err);
+        
       });
   });
 
@@ -141,10 +143,12 @@ module.exports = function(app) {
    app.delete("/api/deleteSearch/:id",function(req,res){
      connection.query("DELETE FROM SearchBuddyData WHERE username = ?",req.params.id,function(err,result){
       if(err) throw err;
-      console.log("deleted");
+      console.log("deleted")
+      
       connection.query("DELETE FROM SearchMovieData WHERE username =?",req.params.id,function(err,result){
         if(err) throw err;
         console.log("2deleted");
+        res.json(result);
       })
 
      })
