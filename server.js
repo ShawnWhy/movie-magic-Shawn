@@ -1,7 +1,6 @@
 require("dotenv").config();
 var express = require("express");
 const compression = require("compression");
-
 var session = require("express-session");
 var passport = require("./config/passport");
 var db = require("./models");
@@ -12,14 +11,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 app.use(compression());
-
-
-// Creating express app and configuring middleware needed for authentication
-var app = express();
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(express.static("public"));
-
 
 // We need to use sessions to keep track of our user's login status
 app.use(

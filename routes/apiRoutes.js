@@ -23,7 +23,7 @@ module.exports = function(app) {
       username: req.body.username
     })
       .then(function() {
-        res.redirect(307, "/api/login");
+        res.redirect(307, "/");
       })
       .catch(function(err) {
         console.log(err)
@@ -54,6 +54,7 @@ module.exports = function(app) {
       res.json({
         email: req.user.email,
         id: req.user.id,
+        password:req.user.password,
         username: req.user.username,
         movie_one:req.user.movie_one,
         movie_two:req.user.movie_two,
@@ -133,12 +134,39 @@ module.exports = function(app) {
       {where: {
         username:id
       }}
+      
     )
-    .then(function(data) {
-      res.json(data)
-    });
     
-   })
+    .then(function(data) {
+      res.json(data);})
+
+
+    // .then( function(){
+    //   console.log("usersus");
+    //   console.log(req.user);
+    //   req.login(req.user, function(err) {
+    //     if (err) {console.log(err)}
+        // return res.redirect('/users/' + req.user.username);})
+
+  // })
+
+})
+// .catch((err)=>{console.log(err)})
+
+app.post("/api/relogin", function(req, res){
+  
+    req.session.passport.user = req.body;
+    // console.log("yayay");
+    res.redirect("/members");
+
+  }
+)
+ 
+ 
+
+
+
+
 
    app.delete("/api/deleteSearch/:id",function(req,res){
      connection.query("DELETE FROM SearchBuddyData WHERE username = ?",req.params.id,function(err,result){
@@ -156,6 +184,7 @@ module.exports = function(app) {
   
 
    })
+  //  .catch(function(err){console.log(err)})
 
   }
    

@@ -1,7 +1,14 @@
 // import { post } from "ajax-request";
 
+// const passport = require("passport");
 
-var username;
+// const passport = require("passport");
+
+
+var username="";
+var password="";
+var userInformation={};
+
 var movieone= $(".movie-one");
 var movieTwo = $(".movie-two");
 var movieThree = $(".movie-three");
@@ -24,17 +31,20 @@ var setupHomePage=function(data){
   movieArray.push(data.movie_one);
   movieArray.push(data.movie_two);
   movieArray.push(data.movie_three);
+  
   for(var i=0;i<movieArray.length;i++){
-    console.log(movieArray[i]);
+    // console.log(movieArray[i]);
     queryURL=`https://www.omdbapi.com/?T=${movieArray[i]}&apikey=7e6191f4`;
-    console.log(queryURL);
+    // console.log(queryURL);
     $.ajax({
           url:queryURL,
           type:"GET"
       }).then(function(response){
     
       moviePosterArray.push(response.Poster);});}
-  setTimeout(function(){console.log(moviePosterArray)
+  setTimeout(function()
+  {
+    console.log(moviePosterArray)
   for(var i=0; i<moviePosterArray.length;i++){
     var newPoster = $("<div>");
     newPoster.addClass("posterFrame");
@@ -55,12 +65,14 @@ $(document).ready(function(){
     $(".member-name").text(data.username);
     
     username=data.username;
+    password=data.password; 
     $.ajax({
       url:"/api/deleteSearch/"+username,
       type:"DELETE",
-      success:function(result){console.log(result)}
+      success:function(result){
+        console.log("result"+result)}
   })
-    console.log(data);
+    // console.log(data);
       if(data.movie_one||data.movie_two||data.movie_three){
         $(".searchForm").attr("style","visibility:visible")
         setupHomePage(data);
@@ -75,11 +87,11 @@ $(document).ready(function(){
    });
 
    
-var handleSubmit=function(event){
+var handleSubmit=  function(event){
   event.preventDefault();
   event.stopPropagation();
   // console.log(movieOne.val());
-  var userInformation= 
+   userInformation= 
     {
       "movie_one":movieone.val(),
       "movie_two":movieTwo.val(),
@@ -96,21 +108,53 @@ var handleSubmit=function(event){
       "searchable":searchable.val(),
       
   };
-  console.log(userInformation);
+  // console.log(userInformation);
   $.ajax({
     url:"/api/submitUserInformation/"+username,
     type:"put",
     data:userInformation
-}).then(function(){
-    console.log("postedInformation");
-    
-    location.reload();
+}).then(function(data){
+    // console.log(data)
+    console.log("sdsdsdsds");
+    console.log(username + password);
+    $.ajax({
+      url:"/api/relogin",
+      type:"post",
+      data:{username:username,
+            password:password,
+            "movie_one":userInformation.movie_one,
+      "movie_two":userInformation.movie_two,
+      "movie_three":userInformation.movie_three,
+      "actor_one":userInformation.actor_one,
+      "actor_two":userInformation.actor_two,
+      "actor_three":userInformation.actor_three,
+      "director_one":userInformation.director_one,
+      "director_two":userInformation.director_two,
+      "director_three":userInformation.director_three,
+      "genre_one":userInformation.genre_one,
+      "genre_two":userInformation.genre_two,
+      "genre_three":userInformation.genre_three,
+      "searchable":userInformation.searchable},
+          
 
-})
+
+
+      }).then(function(data){
+        console.log("updated");
+        // console.log(data);
+        
+        location.reload();
+      })
+
+
+    })
+    
+
+}
 
   
 
-} ;
+ 
 
 $(".submitButton").on("click",handleSubmit);
 
