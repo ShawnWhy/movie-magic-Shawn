@@ -24,7 +24,7 @@ $(document).ready(function() {
     usernameInput.val("");
   });
 
-  // If successful, we are redirected to the members page
+  // If successful, we are redirected to the login
 
   function signUpUser(email, username, password) {
     $.post("/api/signup", {
@@ -33,7 +33,7 @@ $(document).ready(function() {
       password: password
     })
       .then(function(data) {
-        window.location.replace("/members");
+        window.location.replace("/login");
       })
       .catch(handleLoginErr);
   }

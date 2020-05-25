@@ -3,6 +3,8 @@ $(document).ready(function() {
   var usernameInput = $("input#username-input");
   var passwordInput = $("input#password-input");
 
+
+  
   loginForm.on("submit", function(event) {
     event.preventDefault();
     var userData = {
