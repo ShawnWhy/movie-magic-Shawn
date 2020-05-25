@@ -102,13 +102,8 @@ connection.query(
         if(err) throw err;
         });
         },1000);
-
-
-            
-      
-        
-        }
-    )
+      }
+   )
 
 }
 
@@ -206,10 +201,7 @@ var BuddySearchOne = function(id){
       
       })};
     
-     
-
-
-      module.exports={
+    module.exports={
           buddySearch:BuddySearchOne,
           buddySearchTwo:buddySearchTwo,
           buddySearchThree:buddySearchThree
