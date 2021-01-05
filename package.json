@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "ajax-request": "^1.2.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "compression": "^1.7.4",
     "console.table": "^0.10.0",
